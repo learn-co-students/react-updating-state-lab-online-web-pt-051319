@@ -11,19 +11,19 @@ export default class DigitalClicker extends Component {
   }
 
   handleClick = () => {
-      const newCount = this.state.count + 1
-      this.setState({
-          timesClicked: newCount
-      })
-  }
+    this.setState(prev => ({
+      timesClicked: prev.timesClicked + 1
+    }));
+  };
 
   render() {
-      return(
-          <div>
-          <button onClick={this.handleClick}>
-              {this.state.count} Click Me!
-          </button>
-          </div>
-      )
+    return (
+      <div>
+        <h2>Times Clicked: {this.state.timesClicked}</h2>
+        <button onClick={this.handleClick}>
+          {this.state.timesClicked} Click Me!
+        </button>
+      </div>
+    );
   }
 }
